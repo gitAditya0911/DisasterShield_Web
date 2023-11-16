@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="output.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <nav id="nav" class="bg-green-500 flex justify-between font-mono">
+    <div class="flex">
+      <img class="h-16 px-2 pt-2 pb-2 rounded-3xl flex justify-start" src="tornado-storm-wind-rotation-102669.png">
+      <p class="text-3xl text-left py-4 flex justify-left text-teal-50">
+        Disaster Shield
+      </p>
+    </div>
+    <ul class="flex text-white pt-6 space-x-2 px-2 justify-end" id="navul">
+      <li class="px-1 py-1 hover:text-slate-900 hover:bg-slate-300"><a href="#" onclick="showProgressBar()">Home</a></li>
+      <li class="px-1 py-1 hover:text-slate-900 hover:bg-slate-300"><a href="#" onclick="showProgressBar()">Organizations</a></li>
+      <li class="px-1 py-1 hover:text-slate-900 hover:bg-slate-300"><a href="#" onclick="showProgressBar()">Map</a></li>
+      <li class="px-1 py-1 hover:text-slate-900 hover:bg-slate-300"><a href="#" onclick="showProgressBar()">News</a></li>
+      <li class="px-1 py-1 hover:text-slate-900 hover:bg-slate-300"><a href="#" onclick="showProgressBar()">Contact Us</a></li>
+    </ul>
+  </nav>
+  <div class="news-container">
+
+    <div class="news w-1/4 p-4 bg-white">
+
+      <p class="text-sm font-semibold">Live News:</p>
+
+      <ul class="text-sm" id="news-list">
+
+      </ul>
+
+    </div>
+
+    <main class="w-3/4">
+
+      <!-- rest of page content -->
+
+    </main>
+
+  </div>
+
+  <script>
+
+    // API key and URL
+    const apiKey = '2d15dca297f44ea995dc7bf7c34083c4';  
+    const apiUrl = 'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=' + apiKey;
+
+    async function getNews() {
+
+     const articles = await fetchArticles();
+
+articles.forEach(article => {
+  const item = document.createElement('div');
+  item.classList.add('news-item');
+  item.innerHTML = article.title;
+
+  document.querySelector('.news-container').appendChild(item);
+})
+
+    }
+
+    getNews();
+
+  </script>
+
+  <main class="flex bg-gradient-to-br from-green-400 to-green-50 min-h-screen">
+    <div class="m-auto text-center">
+      <p class="text-6xl font-semibold">
+        Get Connected to the network <br> of all rescue agencies in your area and <br> help victims together
+      </p>
+      <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-2xl px-5 py-2.5 text-center me-8 mb-2 mt-12">Sign Up</button>
+      <button type="button" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-2xl px-5 py-2.5 text-center me-4 mb-2">Sign In</button>
+    </div>
+  </main>
+  
+  
+  
+  
+</body>
+</html>
